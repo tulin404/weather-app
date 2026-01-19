@@ -1,12 +1,36 @@
 @import "tailwindcss";
 
 @theme {
+    --color-primary: oklch(1 0 0);
+    --color-secondary: oklch(0.2 0 0);
+    --color-border: oklch(0.5 0 0);
+    --color-shadow-brighter: oklch(0.5 0 0);
+    --color-shadow-darker: oklch(0.7 0 0);
+    --color-input: oklch(0.9 0 0);
+};
+
+.dark {
     --color-primary: oklch(0.2 0 0);
     --color-secondary: oklch(0.9 0 0);
     --color-border: oklch(0.5 0 0);
-    --color-bshadow: oklch(0.3 0 0);
-}
+    --color-shadow-brighter: oklch(0.7 0 0);
+    --color-shadow-darker: oklch(0.3 0 0);
+    --color-input: oklch(0.3 0 0);
+};
 
 body > *{
-    @apply py-6 px-[8%] md:px-[10%];
-}
+    @apply py-2 px-[8%] sm:py-4 sm:px-[10%] md:px-[12%] lg:px-[16%];
+};
+
+@utility shadow-glow {
+    @apply border border-shadow-brighter;
+    box-shadow: var(--color-shadow-brighter) 0px 0px 4px;
+};
+
+@utility theme {
+    @apply opacity-0 scale-0 pointer-events-none;
+};
+
+button:hover {
+    @apply cursor-pointer;
+};

@@ -1,23 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-primary font">
+<html lang="en" class="bg-primary font transition-all">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stormio</title>
     <link rel="stylesheet" href="dist/output.css">
-    <script type="module" src="src/js/main.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="public/favicon.svg" type="image/svg+xml">
 </head>
 <body class="font-[Lexend_Deca] text-secondary">
-    <header id="header" class="md:text-4xl flex items-center justify-between text-3xl border-b-border border-b shadow-sm shadow-bshadow">
+    <header id="header" class="sm:text-4xl flex items-center justify-between text-3xl border-b-border border-b shadow-sm shadow-shadow-darker py-6">
         <div id="icon" class="flex items-center gap-1">
-            <img src="public/favicon.svg" alt="" class="md:max-h-16 max-h-12">
-            <p>Stormio</p>
+            <img src="public/favicon.svg" alt="" class="sm:h-16 h-12">
+            <p class="sm:text-4xl text-2xl">Stormio</p>
         </div>
-        <div id="header-current-loc" class="md:text-xl text-lg">Franca, SP</div>
+        <div id="header-sec-wrapper" class="sm:gap-0 flex items-center gap-2">
+            <div class="sm:pr-2 sm:flex block gap-2 items-center">
+                <div id="header-current-loc" class="sm:text-2xl text-base">Franca, SP</div>
+            </div>
+            <div class="sm:flex sm:flex-row sm:gap-4 flex flex-col-reverse items-center">
+                <div class="font-light sm:text-xl text-sm"><button id="celsius">°C</button> /<button id="farenheit">°F</button></div>
+                <button id="change-theme" class="relative flex items-center h-10 w-10">
+                    <img id="dark-icon" src="public/ui/moon.png" alt="" class="absolute h-10 transition-all hover:-translate-y-2">
+                    <img id="light-icon" src="public/ui/sun.png" alt="" class="absolute h-10 transition-all hover:-translate-y-2">
+                </button>
+            </div>
+        </div>
     </header>
+    <div id="search-mobile" class="flex justify-center items-center">
+        <input type="text" placeholder="City, Region, Adress..." class="bg-input sm:w-[80%] md:w-[60%] w-full rounded-3xl outline-0 py-2 px-4">
+    </div>
+    <div id="main-container" class="lg:grid lg:grid-cols-2 flex flex-col gap-4 justify-center">
+        <div id="main-info" class="sm:py-12 sm:justify-around flex flex-col items-center gap-12 shadow-glow rounded-md py-6 px-[4%]">
+            <div id="main-info-wrapper" class="flex flex-col justify-center items-center text-center gap-4">
+                <div id="main-date" class="text-xl">Domingo, 18 de Janeiro</div>
+                <div id="visual" class="flex items-center gap-4">
+                    <img id="main-weather-icon" src="public/day/clear-day.svg" alt="" class="sm:h-30 h-30">
+                    <p class="sm:text-7xl text-5xl flex temp"><temp>20</temp><meas class="sm:text-4xl text-2xl self-end">°C</meas></p>
+                </div>
+            </div>
+            <div class="w-full flex justify-around">
+                <div id="main-max-temp" class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-warmer.svg" class="h-10" alt=""><temp>24</temp> <meas>°C</meas></div>
+                <div id="main-min-temp" class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-colder.svg" class="h-10" alt=""><temp>17</temp> <meas>°C</meas></div>
+            </div>
+        </div>
+        <div id="main-extra-info" class="py-8 px-[3%] shadow-glow rounded-md flex flex-col gap-6">
+            <div id="main-extra-title" class="flex justify-center text-xl">Today's Conditions</div>
+            <div id="main-extra-wrapper" class="grid grid-cols-3 gap-4">
+                <div id="rain-chance" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Chance of Rain</p>
+                    <img src="public/misc/rain.svg" alt="" class="h-10">
+                    <p class="text-center">80%</p>
+                </div>
+                <div id="precip" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Precipitation</p>
+                    <img src="public/misc/rain-measure.svg" alt="" class="h-10">
+                    <p class="text-center">10 mm</p>
+                </div>
+                <div id="wind" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Wind</p>
+                    <img src="public/misc/wind.svg" alt="" class="h-10">
+                    <p class="text-center"><vel>12</vel> <meas>km/h</meas></p>
+                </div>
+                <div id="humidity" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Humidity</p>
+                    <img src="public/misc/humidity.svg" alt="" class="h-10">
+                    <p class="text-center">80%</p>
+                </div>
+                <div id="pressure" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Pressure</p>
+                    <img src="public/misc/barometer.svg" alt="" class="h-10">
+                    <p class="text-center">704 hPa</p>
+                </div>
+                <div id="uv-index" class="flex flex-col items-center gap-2">
+                    <p class="text-center">UV Index</p>
+                    <img src="public/misc/uv-index-1.svg" alt="" class="h-10">
+                    <p class="text-center">1</p>
+                </div>
+                <div id="sunrise" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Sunrise</p>
+                    <img src="public/misc/sunrise.svg" alt="" class="h-10">
+                    <p class="text-center"><timestamp>6:40</timestamp></p>
+                </div>
+                <div id="sunset" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Sunset</p>
+                    <img src="public/misc/sunset.svg" alt="" class="h-10">
+                    <p class="text-center"><timestamp>18:20</timestamp></p>
+                </div>
+                <div id="moonphase" class="flex flex-col items-center gap-2">
+                    <p class="text-center">Moonphase</p>
+                    <img src="public/misc/moon-full.svg" alt="" class="h-10">
+                    <p class="text-center">Moon full</p>
+                </div>
+            </div>
+        </div>
+        <div id="alerts-container" class="flex justify-center items-center div col-span-2">
+            <div id="alerts" class="w-full shadow-glow rounded-md flex flex-col justify-center items-center px-[4%] py-4">
+                <p class="sm:text-2xl text-xl flex items-center"><img src="public/ui/code-yellow.svg" class="sm:h-16 h-12 float-right" alt="">Alerta de chuva forte</p>
+                <p class="text-center">Chuva intensa com risco de alagamentos.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="src/js/theme.js"></script>
+    <script type="module" src="src/js/main.js"></script>
 </body>
 </html>
