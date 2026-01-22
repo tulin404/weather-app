@@ -1,4 +1,4 @@
-# ⛅ Stormio
+# ⛅ STORMIO
 ### A non profitable, made with free and open-source tools Weather Web Application.
 # ✨ FEATURES
 - **Worldwide weather data coverage**
@@ -14,3 +14,4 @@
 # 🖼️ ASSETS
 - [Meteocons](https://basmilius.github.io/weather-icons/)
 - [Flag Icons](https://flagicons.lipis.dev/)
+
