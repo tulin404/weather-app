@@ -7,6 +7,9 @@
     --color-shadow-brighter: oklch(0.5 0 0);
     --color-shadow-darker: oklch(0.7 0 0);
     --color-input: oklch(0.9 0 0);
+    --color-load-2: oklch(0.3 0 0);
+    --color-load-3: oklch(0.4 0 0);
+    --color-highlited: oklch(0.8 0 0);
 };
 
 .dark {
@@ -16,6 +19,9 @@
     --color-shadow-brighter: oklch(0.7 0 0);
     --color-shadow-darker: oklch(0.3 0 0);
     --color-input: oklch(0.3 0 0);
+    --color-load-2: oklch(0.8 0 0);
+    --color-load-3: oklch(0.7 0 0);
+    --color-highlited: oklch(0.4 0 0);
 };
 
 * {
@@ -40,19 +46,6 @@ button:hover {
     @apply cursor-pointer;
 };
 
-.ft-select {
-    background-color: var(--color-input) !important;
-    color: var(--color-secondary) !important;
-}
-
-.ft-text {
-    color: var(--color-secondary) !important;
-}
-
-#forecast-container > div {
-    scroll-snap-align: center;
-}
-
 #hourly-forecast::after {
     content: '';
     @apply absolute top-2 bottom-2 right-3 w-6 bg-primary blur-xs;
@@ -66,4 +59,72 @@ button:hover {
 .daily-for-wrapper:not(:last-child)::after {
     content:'';
     @apply absolute right-0 left-0 top-full mt-2 h-0.5 rounded-full bg-shadow-brighter
+}
+
+.load-box {
+    animation: loading 2.5s infinite ease-in-out;
+}
+
+#box2 {
+    animation-delay: 0.1s;
+}
+#box3 {
+    animation-delay: 0.2s;
+}
+
+@keyframes loading {
+    0% {
+        transform: translateX(0);
+    } 30% {
+        transform: translateX(-50px);
+    } 70% {
+        transform: translateX(50px);
+    } 100% {
+        transform: translateX(0);
+    };
+};
+
+.choices__inner {
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 0 !important;
+    min-height: auto !important;
+    background-color: var(--color-input) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.choices__list--single {
+    padding: 0 !important;
+    border: 0 !important;
+    margin: 0 !important;
+    width: 48px !important;
+    font-size: 16px !important;
+};
+
+.choices[data-type="select-one"]::after {
+    transition: all 0.5s;
+    border-color: var(--color-secondary) transparent transparent transparent !important;
+};
+
+.choices[data-type="select-one"].is-open::after {
+    transform: rotate(-180deg);
+};
+
+.choices__list--dropdown {
+    overflow-x: hidden !important;
+    overflow-y: scroll !important;
+    max-height: 86px !important;
+    background-color: var(--color-input) !important;
+};
+
+.is-highlighted {
+    background-color: var(--color-highlited) !important;
+}
+
+@media (width < 640px) {
+    .choices[data-type="select-one"]::after {
+        right: 2px !important;
+    };
 }

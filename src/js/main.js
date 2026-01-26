@@ -58,7 +58,6 @@ import {Translator} from "./translator.js";
 
 const translator = Translator();
 
-const select = document.querySelector('select');
 window.addEventListener('load', () => {
     if (localStorage.getItem('lang') === null) {
         const localLang = navigator.language.slice(0, 2);
@@ -71,11 +70,25 @@ window.addEventListener('load', () => {
     };
 });
 
+const select = document.querySelector('select');
 select.addEventListener('change', (e) => {
     translator.changeFlag(e.target.value);
     translator.translate(e.target.value);
     localStorage.setItem('lang', e.target.value);
 });
 
-const allTxtsElements = Array.from(document.querySelectorAll('.translate'));
-console.log(allTxtsElements)
+// WEATHER MAIN
+async function getWeather() {
+    const weather = await fetch("/api/weather", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({loc: 'Brasilia'})
+    });
+
+    const weatherInfo = await weather.json();
+    console.log(weatherInfo.data);
+};
+
+getWeather()

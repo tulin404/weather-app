@@ -25,6 +25,7 @@
     "tailwindcss": "^4.1.18"
   },
   "dependencies": {
-    "api-translator": "^1.1.0"
+    "api-translator": "^1.1.0",
+    "dotenv": "^17.2.3"
   }
 }

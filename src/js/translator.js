@@ -15,15 +15,21 @@ function changeFlag(value) {
 
 const allTxtsElements = Array.from(document.querySelectorAll('.translate'));
 const allTxts = allTxtsElements.map(element => element.innerText);
+const loadingWrapper = document.querySelector('#loading');
 
 async function translate(lng) {
-    if (localStorage.getItem(lng)) {
+    
+    if (localStorage.getItem(lng) && localStorage.getItem(lng) !== null) {
         const cache = JSON.parse(localStorage.getItem(lng));
         allTxtsElements.forEach((element, index) => {
             element.innerText = cache[index];
         });
     } else {
         try {
+            document.documentElement.classList.toggle('overflow-hidden');
+            document.documentElement.classList.toggle('pointer-events-none');
+            loadingWrapper.classList.toggle('hidden');
+
             const raw = await fetch('/api/translate', {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
@@ -37,13 +43,15 @@ async function translate(lng) {
             localStorage.setItem(lng, JSON.stringify(data.translated));
             allTxtsElements.forEach((text, index) => {
                 text.innerText = data.translated[index];
-            });
+            }).then()
         } catch(error) {
             console.error(error.message);
+        } finally {
+            document.documentElement.classList.toggle('overflow-hidden');
+            document.documentElement.classList.toggle('pointer-events-none');
+            loadingWrapper.classList.toggle('hidden');
         };
     }
-
-        
 };
 
 export function Translator() {
