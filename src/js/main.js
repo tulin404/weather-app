@@ -72,9 +72,10 @@ window.addEventListener('load', () => {
 
 const select = document.querySelector('select');
 select.addEventListener('change', (e) => {
-    translator.changeFlag(e.target.value);
-    translator.translate(e.target.value);
-    localStorage.setItem('lang', e.target.value);
+    const selected = select.querySelector('option[selected=""]');
+    translator.changeFlag(selected.value);
+    translator.translate(selected.value);
+    localStorage.setItem('lang', selected.value);
 });
 
 // WEATHER MAIN
