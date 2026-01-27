@@ -44,13 +44,16 @@
             <select name="translator" id="translator">
                 <option value="en">EN</option>
                 <option value="pt-BR">PT</option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
-                <option value=""></option>
+                <option value="zh-Hans">ZH</option>
+                <option value="it">IT</option>
+                <option value="fr">FR</option>
+                <option value="hi">HI</option>
+                <option value="ar">AR</option>
+                <option value="de">DE</option>
+                <option value="es">ES</option>
+                <option value="ru">RU</option>
+                <option value="ur">UR</option>
+                <option value="bn">BN</option>
             </select>
         </div>
     </div>
@@ -299,7 +302,7 @@
     <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
     <script>
         new Choices('#translator', {
-            shouldSort: false,
+            shouldSort: true,
             searchEnabled: false,
             itemSelectText: ''
         });
