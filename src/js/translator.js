@@ -40,6 +40,7 @@ async function translate(lng) {
             });
             
             const data = await raw.json();
+            console.log(data);
             console.log(typeof data)
             console.log(typeof data.translated)
             if (!Array.isArray(data.translated)) {
