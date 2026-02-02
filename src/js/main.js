@@ -121,6 +121,7 @@ weatherInput.addEventListener('keydown', async (e) => {
         weatherInput.value = '';
         forecastContainer.replaceChildren();
         changeInfo(weatherData);
+        console.log(weatherData);
         translator.changeFlag(localStorage.getItem('lang'));
         translator.translate(localStorage.getItem('lang'));
         if (localStorage.getItem('measure') === 'farenheit') {
@@ -240,6 +241,7 @@ function changeTodaysConditions(firstDay) {
     const textMoonPhase = moonPhaseToText(firstDay.moonphase);
     moonphaseImg.src = `public/misc/${textMoonPhase[1]}.svg`
     moonphase.innerText = textMoonPhase[0];
+    console.log(textMoonPhase)
 };
 
 function changeHourlyForecast (obj) {
