@@ -9,7 +9,7 @@
     <script defer src="src/js/carousel.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="public/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
 </head>
@@ -38,8 +38,7 @@
         </div>
     </header>
     <div class="flex relative justify-center items-center gap-4">
-        <img src="public/ui/search.svg" alt="">
-        <input id="search" type="text" class="bg-input sm:w-[80%] md:w-[60%] w-full rounded-3xl outline-0 py-2 px-4">
+        <input id="search" type="text" placeholder="Q" class="bg-input sm:w-[80%] md:w-[60%] w-full rounded-3xl outline-0 py-2 px-4 font-[Nunito]">
         <div id="translator-wrapper" class="sm:2.5 flex justify-center items-center gap-2 py-1.5 bg-input px-3 rounded-md">
             <label for="translator" class="cursor-pointer"><img src="public/flags/us.svg" id="img-flag" alt="" class="h-4"></label>
             <select name="translator" id="translator">
@@ -79,47 +78,47 @@
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Chance of Rain</p>
                     <img src="public/misc/rain.svg" alt="" class="h-10">
-                    <p id="rain-chance" class="text-center">80%</p>
+                    <p id="rain-chance" class="text-center"></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Precipitation</p>
                     <img src="public/misc/rain-measure.svg" alt="" class="h-10">
-                    <p id="precip" class="text-center">10 mm</p>
+                    <p id="precip" class="text-center"></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Wind</p>
                     <img src="public/misc/wind.svg" alt="" class="h-10">
-                    <p id="wind" class="text-center"><vel>12</vel> <meas>km/h</meas></p>
+                    <p class="text-center"><vel  id="wind"></vel> <meas>km/h</meas></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Humidity</p>
                     <img src="public/misc/humidity.svg" alt="" class="h-10">
-                    <p id="humidity" class="text-center">80%</p>
+                    <p id="humidity" class="text-center"></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Pressure</p>
                     <img src="public/misc/barometer.svg" alt="" class="h-10">
-                    <p id="pressure" class="text-center">704 hPa</p>
+                    <p id="pressure" class="text-center"> hPa</p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">UV Index</p>
-                    <img id="uv-img" src="public/misc/uv-index-1.svg" alt="" class="h-10">
-                    <p id="uv-index" class="text-center">1</p>
+                    <img id="uv-img" src="" alt="" class="h-10">
+                    <p id="uv-index" class="text-center"></p>
                 </div>
                 <div  class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Sunrise</p>
                     <img src="public/misc/sunrise.svg" alt="" class="h-10">
-                    <p class="text-center"><timestamp id="sunrise">6:40</timestamp></p>
+                    <p class="text-center"><timestamp id="sunrise"></timestamp></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Sunset</p>
                     <img src="public/misc/sunset.svg" alt="" class="h-10">
-                    <p class="text-center"><timestamp id="sunset">18:20</timestamp></p>
+                    <p class="text-center"><timestamp id="sunset"></timestamp></p>
                 </div>
                 <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Moonphase</p>
-                    <img id="moonphase-img" src="public/misc/moon-full.svg" alt="" class="h-10">
-                    <p id="moonphase" class="text-center translate">Moon full</p>
+                    <img id="moonphase-img" src="" alt="" class="h-10">
+                    <p id="moonphase" class="text-center translate"></p>
                 </div>
             </div>
         </div>

@@ -123,7 +123,10 @@ weatherInput.addEventListener('keydown', async (e) => {
         changeInfo(weatherData);
         translator.changeFlag(localStorage.getItem('lang'));
         translator.translate(localStorage.getItem('lang'));
-    }
+        if (localStorage.getItem('measure') === 'farenheit') {
+            convertToF();
+        };
+    };
 });
 
 function changeInfo(obj) {
@@ -223,7 +226,7 @@ function changeMainTemps(obj) {
 
 function changeTodaysConditions(firstDay) {
     rainChance.innerText = `${firstDay.precipprob}%`;
-    precip.innerText = `${firstDay.precip}`;
+    precip.innerText = `${firstDay.precip} mm`;
     wind.innerText = firstDay.windspeed;
     humidity.innerText = `${firstDay.humidity}%`;
     pressure.innerText = `${firstDay.pressure} hPa`;
@@ -314,7 +317,7 @@ function moonPhaseToText(moonphase) {
 async function getCity() {
     const raw = await fetch('/api/ip');
     const ip = await raw.json();
-    return ip.city;
+    return ip.data.city;
 };
 
 window.addEventListener('load', async (e) => {
@@ -325,11 +328,14 @@ window.addEventListener('load', async (e) => {
         translator.changeFlag(localStorage.getItem('lang'));
         translator.translate(localStorage.getItem('lang'));
     } else {
-        const city = getCity();
+        const city = await getCity();
         const weatherObj = await getWeather(city);
         const weatherData = await weatherObj.data;
         changeInfo(weatherData);
         translator.changeFlag(localStorage.getItem('lang'));
         translator.translate(localStorage.getItem('lang'));
+    };
+    if (localStorage.getItem('measure') === 'farenheit') {
+        convertToF();
     };
 });
