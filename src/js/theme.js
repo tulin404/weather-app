@@ -43,9 +43,9 @@ window.addEventListener('load', () => {
 
 // IMAGES
 const imgs = Array.from(document.querySelectorAll('img'));
-const now = new Date();
 
 window.addEventListener('load', () => {
+    const now = new Date();
     if (now.getHours() > 18) {
         const newImgArray = imgs.map(img => img.src.replaceAll('day', 'night'));
         imgs.forEach((img, index) => {

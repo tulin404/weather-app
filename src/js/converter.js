@@ -5,8 +5,8 @@ const measArray = Array.from(document.querySelectorAll('meas'));
 
 function toCelsius() {
     const convertedArray = tempArray.map(temp => {
-        const number = Number.parseInt(temp.innerText);
-        const celsius = Number.parseInt((number - 32)/(1.8));
+        const number = Number.parseFloat(temp.innerText);
+        const celsius = Number.parseFloat(Math.round((number - 32)/(1.8)));
         return celsius;
     });
     tempArray.forEach((el, index) => el.innerText = convertedArray[index]);
@@ -19,8 +19,8 @@ function toCelsius() {
 
 function toFarenheit() {
     const convertedArray = tempArray.map(temp => {
-        const number = Number.parseInt(temp.innerText);
-        const farenheit = Number.parseInt((number * 1.8)+(32));
+        const number = Number.parseFloat(temp.innerText);
+        const farenheit = Number.parseFloat(Math.round((number * 1.8)+(32)));
         return farenheit;
     });
     tempArray.forEach((el, index) => el.innerText = convertedArray[index]);

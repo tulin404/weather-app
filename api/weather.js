@@ -3,7 +3,7 @@ export default async function weatherHandler(req, res) {
         const {loc} = req.body;
         const formatedLoc = encodeURIComponent(loc);
 
-        const raw = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formatedLoc}?unitGroup=metric&include=elements=datetime,temp,precip,precipprob,windspeed,windgust,humidity,pressure,uvindex,sunrise,sunset,moonphase&key=${process.env.VISUAL_CROSSING_KEY}&contentType=json`);
+        const raw = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${formatedLoc}?unitGroup=metric&include=elements=datetime,alerts,current,temp,precip,precipprob,windspeed,windgust,humidity,pressure,uvindex,sunrise,sunset,moonphase,hours&key=${process.env.VISUAL_CROSSING_KEY}&contentType=json`);
 
         if (!raw.ok) {
             throw new Error(raw.message);

@@ -26,7 +26,7 @@
         </div>
         <div id="header-sec-wrapper" class="sm:gap-0 flex items-center gap-2">
             <div class="sm:pr-2 sm:flex block gap-2 items-center">
-                <div id="header-current-loc" class="sm:text-2xl text-base">Franca, SP</div>
+                <div id="header-current-loc" class="sm:text-xl text-base"></div>
             </div>
             <div class="sm:flex sm:flex-row sm:gap-4 flex flex-col-reverse items-center">
                 <div class="font-light sm:text-xl text-sm"><button id="celsius">°C</button> /<button id="farenheit">°F</button></div>
@@ -37,8 +37,9 @@
             </div>
         </div>
     </header>
-    <div id="search" class="flex relative justify-center items-center gap-4">
-        <input type="text" placeholder="City, Region, Adress..." class="bg-input sm:w-[80%] md:w-[60%] w-full rounded-3xl outline-0 py-2 px-4">
+    <div class="flex relative justify-center items-center gap-4">
+        <img src="public/ui/search.svg" alt="">
+        <input id="search" type="text" class="bg-input sm:w-[80%] md:w-[60%] w-full rounded-3xl outline-0 py-2 px-4">
         <div id="translator-wrapper" class="sm:2.5 flex justify-center items-center gap-2 py-1.5 bg-input px-3 rounded-md">
             <label for="translator" class="cursor-pointer"><img src="public/flags/us.svg" id="img-flag" alt="" class="h-4"></label>
             <select name="translator" id="translator">
@@ -61,71 +62,71 @@
         <div id="main-info" class="sm:py-12 sm:justify-around flex flex-col items-center gap-12 shadow-glow rounded-md py-6 px-[4%]">
             <div id="main-info-wrapper" class="flex flex-col justify-center items-center text-center gap-4">
                 <div id="main-date" class="text-2xl translate">Thursday, January 22</div>
-                <div id="main-state" class="text-xl font-medium translate">Clear day, sky without clouds.</div>
+                <div id="main-condition" class="text-lg font-medium translate"></div>
                 <div id="visual" class="flex items-center gap-4">
                     <img id="main-weather-icon" src="public/day/clear-day.svg" alt="" class="h-28">
-                    <p class="sm:text-7xl text-5xl flex temp"><temp>20</temp><meas class="sm:text-4xl text-2xl self-end">°C</meas></p>
+                    <p class="sm:text-7xl text-5xl flex temp"><temp id="main-temp"></temp><meas class="sm:text-4xl text-2xl self-end">°C</meas></p>
                 </div>
             </div>
             <div class="w-full flex justify-around">
-                <div id="main-max-temp" class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-warmer.svg" class="h-10" alt=""><temp>24</temp> <meas>°C</meas></div>
-                <div id="main-min-temp" class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-colder.svg" class="h-10" alt=""><temp>17</temp> <meas>°C</meas></div>
+                <div class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-warmer.svg" class="h-10" alt=""><temp id="main-max-temp">24</temp> <meas>°C</meas></div>
+                <div class="flex items-center justify-center gap-2 text-2xl"><img src="public/misc/thermometer-colder.svg" class="h-10" alt=""><temp id="main-min-temp">17</temp> <meas>°C</meas></div>
             </div>
         </div>
         <div id="main-extra-info" class="py-8 px-[3%] shadow-glow rounded-md flex flex-col gap-6">
             <div id="main-extra-title" class="flex justify-center text-xl translate">Today's Conditions</div>
             <div id="main-extra-wrapper" class="grid grid-cols-3 gap-4">
-                <div id="rain-chance" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Chance of Rain</p>
                     <img src="public/misc/rain.svg" alt="" class="h-10">
-                    <p class="text-center">80%</p>
+                    <p id="rain-chance" class="text-center">80%</p>
                 </div>
-                <div id="precip" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Precipitation</p>
                     <img src="public/misc/rain-measure.svg" alt="" class="h-10">
-                    <p class="text-center">10 mm</p>
+                    <p id="precip" class="text-center">10 mm</p>
                 </div>
-                <div id="wind" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Wind</p>
                     <img src="public/misc/wind.svg" alt="" class="h-10">
-                    <p class="text-center"><vel>12</vel> <meas>km/h</meas></p>
+                    <p id="wind" class="text-center"><vel>12</vel> <meas>km/h</meas></p>
                 </div>
-                <div id="humidity" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Humidity</p>
                     <img src="public/misc/humidity.svg" alt="" class="h-10">
-                    <p class="text-center">80%</p>
+                    <p id="humidity" class="text-center">80%</p>
                 </div>
-                <div id="pressure" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Pressure</p>
                     <img src="public/misc/barometer.svg" alt="" class="h-10">
-                    <p class="text-center">704 hPa</p>
+                    <p id="pressure" class="text-center">704 hPa</p>
                 </div>
-                <div id="uv-index" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">UV Index</p>
-                    <img src="public/misc/uv-index-1.svg" alt="" class="h-10">
-                    <p class="text-center">1</p>
+                    <img id="uv-img" src="public/misc/uv-index-1.svg" alt="" class="h-10">
+                    <p id="uv-index" class="text-center">1</p>
                 </div>
-                <div id="sunrise" class="flex flex-col items-center gap-2">
+                <div  class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Sunrise</p>
                     <img src="public/misc/sunrise.svg" alt="" class="h-10">
-                    <p class="text-center"><timestamp>6:40</timestamp></p>
+                    <p class="text-center"><timestamp id="sunrise">6:40</timestamp></p>
                 </div>
-                <div id="sunset" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Sunset</p>
                     <img src="public/misc/sunset.svg" alt="" class="h-10">
-                    <p class="text-center"><timestamp>18:20</timestamp></p>
+                    <p class="text-center"><timestamp id="sunset">18:20</timestamp></p>
                 </div>
-                <div id="moonphase" class="flex flex-col items-center gap-2">
+                <div class="flex flex-col items-center gap-2">
                     <p class="text-center translate">Moonphase</p>
-                    <img src="public/misc/moon-full.svg" alt="" class="h-10">
-                    <p class="text-center translate">Moon full</p>
+                    <img id="moonphase-img" src="public/misc/moon-full.svg" alt="" class="h-10">
+                    <p id="moonphase" class="text-center translate">Moon full</p>
                 </div>
             </div>
         </div>
-        <div id="alerts-container" class="flex justify-center items-center div col-span-2">
+        <div id="alerts-container" class="flex justify-center items-center div col-span-2 hidden">
             <div id="alerts" class="w-full shadow-glow rounded-md flex flex-col justify-center items-center px-[4%] py-4">
-                <div class="flex items-center"><img src="public/ui/code-yellow.svg" class="sm:h-16 h-12 float-left" alt=""><p class="sm:text-2xl flex text-xl translate">Alerta de chuva forte</p></div>
-                <p class="text-center translate">Chuva intensa com risco de alagamentos.</p>
+                <div class="flex items-center"><img src="public/ui/code-yellow.svg" class="sm:h-16 h-12 float-left" alt=""><p class="sm:text-2xl flex text-xl translate" id="headline"></p></div>
+                <p class="text-center translate" id="description"></p>
             </div>
         </div>
     </div>
@@ -135,106 +136,6 @@
             <button id="previous" class="sm:flex hidden absolute z-10 top-[58%] left-3 -translate-y-1/2 bg-input rounded-full px-1.75 items-center justify-center font-sans font-black"><</button>
             <button id="next" class="sm:flex hidden absolute z-10 top-[58%] right-3 -translate-y-1/2 bg-input rounded-full px-1.75 items-center justify-center font-sans font-black">></button>
             <div id="forecast-container" class="sm:overflow-hidden sm:gap-6 text-lg snap-proximity gap-8 flex px-5 overflow-x-auto">
-                <div class="sm:bg-input rounded-sm sm:px-2 sm:py-1 flex flex-col justify-between items-center text-center text-xl">
-                    <p id="for-time"><timestamp class="text-nowrap">16:00</timestamp></p>
-                    <div id="for-icon"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>0</temp> <meas></meas>°C</div>
-                </div>
-                <div class="sm:bg-input rounded-sm sm:px-2 sm:py-1 flex flex-col gap-1 text-center ">
-                    <p id="for-time"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>1</temp> <meas></meas></div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>2</temp> <meas></meas></div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>3</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>4</temp> <meas></meas></div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>5</temp> <meas></meas></div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>6</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>7</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>8</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>9</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>10</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>11</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>12</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>13</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>14</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>15</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>15</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>15</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>15</temp> <meas></meas>°C</div>
-                </div>
-                <div class="flex flex-col gap-1 text-center ">
-                    <p id="for-time" class="text-nowrap"><timestamp>16:00</timestamp></p>
-                    <div id="for-icon" class="text-nowrap"><img src="public/static/day/cloudy.svg" alt="" class="sm:h-8 md:h-10 h-6"></div>
-                    <div class="text-nowrap"><temp>15</temp> <meas></meas>°C</div>
-                </div>
             </div>
         </div>
     </section>
@@ -242,60 +143,60 @@
         <div id="7-day-forecast" class="shadow-glow rounded-md flex flex-col gap-4 px-6 py-3 font-medium">
             <p class="text-xl text-center pt-2 translate">7 Day Forecast</p>
             <div class="daily-for-wrapper flex justify-between items-center relative py-2">
-                <p class="daily-day translate">Sunday</p>
-                <div class="flex items-center gap-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
                     <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
                     <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+           <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+            <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+            <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+            <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+            <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
-            <div class="daily-for-wrapper flex justify-between items-center relative">
-                <p class="daily-day"></p>
-                <div>
-                    <img class="daily-img" src="" alt="">
-                    <p class="daily-prec"></p>
+            <div class="daily-for-wrapper flex justify-between items-center relative py-2">
+                <p class="daily-day translate flex flex-1">Sunday</p>
+                <div class="flex items-center gap-2 flex-1 justify-center">
+                    <img class="daily-img h-8" src="public/day/clear-day.svg" alt="">
+                    <p class="daily-prec">10%</p>
                 </div>
-                <p><temp class="daily-min-temp"></temp> <meas></meas>/<temp class="daily-max-temp"></temp> <meas></meas></p>
+                <p class="flex flex-1 text-nowrap justify-end"><temp class="daily-min-temp">20</temp><meas>°C</meas> / <temp class="daily-max-temp">25</temp> <meas>°C</meas></p>
             </div>
         </div>
     </section>

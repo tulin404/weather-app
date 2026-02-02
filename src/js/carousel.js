@@ -12,7 +12,7 @@ nextBtn.addEventListener('click', () => {
 
 previousBtn.addEventListener('click', () => {
     forecastContainer.scrollBy({
-        left: -63,
+        left: -96,
         behavior: 'smooth',
         inline: 'start'
     });

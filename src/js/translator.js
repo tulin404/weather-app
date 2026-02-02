@@ -19,7 +19,7 @@ const loadingWrapper = document.querySelector('#loading');
 
 async function translate(lng) {
     
-    if (localStorage.getItem(lng) && localStorage.getItem(lng) !== null) {
+    if (localStorage.getItem(lng) && localStorage.getItem(lng) !== undefined) {
         const cache = JSON.parse(localStorage.getItem(lng));
         allTxtsElements.forEach((element, index) => {
             element.innerText = cache[index];

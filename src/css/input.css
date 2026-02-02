@@ -115,7 +115,8 @@ button:hover {
 .choices__list--dropdown {
     overflow-x: hidden !important;
     overflow-y: scroll !important;
-    max-height: 86px !important;
+    height: 128px !important;
+    width: 96px !important;
     background-color: var(--color-input) !important;
 };
 
@@ -125,6 +126,6 @@ button:hover {
 
 @media (width < 640px) {
     .choices[data-type="select-one"]::after {
-        right: 2px !important;
+        right: 0px !important;
     };
 }
