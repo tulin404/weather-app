@@ -3,11 +3,11 @@
 # ✨ FEATURES
 - **Worldwide weather data coverage**
 - **World's most spoken languages supported**
-- **Ultra low latency on API calls for almost instant results**
+- **Low latency on API calls for almost instant results**
 - **Built-in cache system for wheater information and translations**
 - **Automatic location detection**
 - **Responsive layout and theme**
-- **Optmized and scalable code structure**
+- **Optmized code structure**
 # 🤖 STACK
 - HTML, JS
 - Tailwind v4
@@ -20,5 +20,4 @@
 - [Meteocons](https://basmilius.github.io/weather-icons/)
 - [Flag Icons](https://flagicons.lipis.dev/)
 
-WIP!
-
+PS: I could not find a free reliable translation API, so the translation is unstable.
